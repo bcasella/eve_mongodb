@@ -1,6 +1,6 @@
 schema = {
-    # Schema definition, based on Cerberus grammar. Check the Cerberus project
-    # (https://github.com/nicolaiarocci/cerberus) for details.
+    #so, its object has permission on entity. ie: client1 has WRITE on schoolAPI
+
     'object': {
         'type': 'string',
         'minlength': 1,
@@ -14,7 +14,14 @@ schema = {
         'required': True,
 
     },
-    # 'role' is a list, and can only contain values from 'allowed'.
+    'entity': {
+        'type': 'string',
+        'minlength': 1,
+        'maxlength': 35,
+        'required': True,
+
+    },
+
 }
 
 schema_acc =  {
@@ -52,6 +59,7 @@ accounts = {
 
     # Finally, let's add the schema definition for this endpoint.
     'schema': schema_acc,
+    'allowed_roles': ['superuser', 'admin'],
 }
 
 
